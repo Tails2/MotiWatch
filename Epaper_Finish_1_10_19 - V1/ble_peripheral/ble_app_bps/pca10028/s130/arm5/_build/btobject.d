@@ -1,0 +1,16 @@
+.\_build\btobject.o: btObject.c
+.\_build\btobject.o: MyePaper.h
+.\_build\btobject.o: MySoftSPI.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_ranges.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_types.h
+.\_build\btobject.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_gap.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\nrf_svc.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_l2cap.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_err.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\nrf_error.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_gatt.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_gattc.h
+.\_build\btobject.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_gatts.h
+.\_build\btobject.o: btObject.h
