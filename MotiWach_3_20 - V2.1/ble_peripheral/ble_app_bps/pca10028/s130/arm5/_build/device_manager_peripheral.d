@@ -29,10 +29,10 @@
 .\_build\device_manager_peripheral.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_gatt.h
 .\_build\device_manager_peripheral.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_gattc.h
 .\_build\device_manager_peripheral.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_gatts.h
-.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_BLE\nRF51422_xxAC\device_manager_cnfg.h
-.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Libraries\nRF51422_xxAC\app_trace.h
+.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_BLE\nRF51422_xxAC\device_manager_cnfg.h
+.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Libraries\nRF51422_xxAC\app_trace.h
 .\_build\device_manager_peripheral.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Drivers\nRF51422_xxAC\pstorage.h
-.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Drivers\nRF51422_xxAC\pstorage_platform.h
+.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Drivers\nRF51422_xxAC\pstorage.h
+.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Drivers\nRF51422_xxAC\pstorage_platform.h
 .\_build\device_manager_peripheral.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\ble_hci.h
-.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Libraries\nRF51422_xxAC\app_error.h
+.\_build\device_manager_peripheral.o: D:\Projekt\!GitHub\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Libraries\nRF51422_xxAC\app_error.h

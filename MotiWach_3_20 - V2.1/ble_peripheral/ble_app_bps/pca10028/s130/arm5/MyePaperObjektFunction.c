@@ -174,6 +174,8 @@ const uint8_t *getScrin(uint8_t numberScrin){
 	if(numberScrin==250){scrin=&ObjScrinBluetooth[0];};
 	if(numberScrin==251){scrin=&ObjScrinReset[0];};
 	if(numberScrin==252){scrin=&ObjRunReset[0];};
+	if(numberScrin==253){scrin=&ObjScrinPresetTimer[0];};
+	if(numberScrin==254){scrin=&ObjRunRpesetTimer[0];};
 	
 	
 return scrin;
@@ -205,20 +207,38 @@ void GoToCommand(My_ObjKey_TypeDef key){
 	if(reserv==3){																		//переход связанный с меню Check
 		uint8_t crMenu=key.reservAdres1>>8;
 		uint8_t cntMenu=key.reservAdres1;
+		const uint8_t bf[]={ParamAdrBackGoal};
+		uint16_t BackGoal= (bf[0]<<8)|bf[1];
+		uint8_t fl=1;
 		uint16_t mask = paramsArray[key.paramadres];
-		uint8_t i=0;
-		crMenu++;
-		while (i<cntMenu){
-			if(crMenu>(cntMenu-1)){crMenu=0;}
-			if(mask&(1<<crMenu)){
-				key.objektadres+=crMenu;
-				paramsArray[key.reservAdres2]=crMenu;
-				i=cntMenu;	
-			}	
-			i++;
+		if(cntMenu&0x80){
+			if((1<<paramsArray[key.reservAdres2])&mask){
+				key.objektadres+=paramsArray[key.reservAdres2];
+				fl=0;
+			}
+			else{
+				key.objektadres+=paramsArray[BackGoal];
+				paramsArray[key.reservAdres2]=paramsArray[BackGoal];
+				fl=0;
+			}
+		}
+		if(fl){
+			uint8_t i=0;
 			crMenu++;
-		}	
+			while (i<cntMenu){
+				if(crMenu>(cntMenu-1)){crMenu=0;}
+				if(mask&(1<<crMenu)){
+					key.objektadres+=crMenu;
+					paramsArray[key.reservAdres2]=crMenu;
+					i=cntMenu;	
+				}	
+				i++;
+				crMenu++;
+			}	
+		}
 	}
+	
+	
 	if(reserv==4){																		//переход c установкой бита Check
 		paramsArray[key.paramadres]|=key.reservAdres1;
 	}
@@ -298,7 +318,7 @@ if(key.command==0x02){
 }
 if(key.command==0x03){
 	EPD_1IN54_Clear(0xff);
-	EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
+	//EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
 	GoToCommand(key);
 	EPD_1IN54_TurnOnDisplay();
 }
@@ -306,7 +326,7 @@ if(key.command==0x03){
 if(key.command==0x04){
 	currentScrinPosition--;
 	EPD_1IN54_Clear(0xff);
-	EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
+	//EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
 	EPD_1IN54_DrawObjScrin(getCurentScrin());
 	EPD_1IN54_TurnOnDisplay();
 }
@@ -320,7 +340,7 @@ void KeyReaction(uint8_t key,uint8_t newKey){
 	if(newKey){
 		MyePaperInit(1);
 		EPD_1IN54_Clear(0xff);
-		EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
+	//	EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
 		EPD_1IN54_DrawObjScrin(getCurentScrin());
 		EPD_1IN54_TurnOnDisplay();	
 			
@@ -334,18 +354,19 @@ void KeyReaction(uint8_t key,uint8_t newKey){
 		if(key==0x01){
 			KeyRun(ObjKey3);
 		}	
-	/*	if(key==0x06){		
+		if(key==0x06){		
 				currentScrinPosition++;
-				stackScrin[currentScrinPosition]=249;	
-				EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
+				stackScrin[currentScrinPosition]=253;	
+				EPD_1IN54_Clear(0xff);
+				//EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
 				EPD_1IN54_DrawObjScrin(getCurentScrin());
 				EPD_1IN54_TurnOnDisplay();	
-		}	*/
+		}	
 		if(key==0x05){		
 				currentScrinPosition++;
 				stackScrin[currentScrinPosition]=249;	
 				EPD_1IN54_Clear(0xff);
-				EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
+				//EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
 				EPD_1IN54_DrawObjScrin(getCurentScrin());
 				EPD_1IN54_TurnOnDisplay();	
 		}	
@@ -1257,7 +1278,26 @@ void EPD_1IN54_ObjDataOperation(const uint8_t *object){
 			//W25Q_Flash_erase();	
 			W25Q_Flash_Sektor_erase(0);	
 			NVIC_SystemReset();
-	}
+		}
+		
+			if(object[1]==78){  //Reset operation
+				const uint8_t bf[]={ParamAdrMenuCheck};
+				uint16_t MenuCheck= (bf[0]<<8)|bf[1];
+				paramsArray[MenuCheck]|=0x000a;
+				//alk
+				CounterBackArray[9]=(22*24+17)*3600;//1962000;
+				CounterBackArray[8]=(14*24+8)*3600;//1238400;
+				CounterBackArray[7]=(9*24+12)*3600;
+				CounterBackArray[6]=(4*24+11)*3600;
+				CounterBackArray[5]=(2*24+5)*3600;
+				//food
+				CounterBackArray[19]=(12*24+19)*3600;
+				CounterBackArray[18]=(10*24+8)*3600;
+				CounterBackArray[17]=(6*24+7)*3600;
+				CounterBackArray[16]=(4*24+11)*3600;
+				CounterBackArray[15]=(3*24+5)*3600;			
+			
+		}
 	}
 	if(object[0]==5){  //if operation
 		uint16_t data1 = (object[2]<<8)+object[3];
@@ -1267,7 +1307,9 @@ void EPD_1IN54_ObjDataOperation(const uint8_t *object){
 		if(object[1] == 1){if(paramsArray[data1]==value1){paramsArray[data2]=value2;}}
 		if(object[1] == 2){if(paramsArray[data1]!=value1){paramsArray[data2]=value2;}}
 		if(object[1] == 3){if(paramsArray[data1]> value1){paramsArray[data2]=value2;}}
-		if(object[1] == 4){if(paramsArray[data1]< value1){paramsArray[data2]=value2;}}	
+		if(object[1] == 4){if(paramsArray[data1]< value1){paramsArray[data2]=value2;}}
+	  if(object[1] == 5){if(paramsArray[data1]&paramsArray[value1]){paramsArray[data2]=paramsArray[value2];}}	
+
 	}
 	if(object[0]==6){  //RandomData operation			
 		uint16_t data1 = (object[2]<<8)+object[3];
@@ -1421,7 +1463,7 @@ void EPD_1IN54_DrawObjScrin(const uint8_t *object){
 }
 
 void EPD_1IN54_DrawObjStartScrin(){	
-	if(WaitUntilIdle()){
+	/*if(WaitUntilIdle()){
 		MyePaperInit(1);
 	}
 	if(WaitUntilIdle()){
@@ -1439,7 +1481,15 @@ void EPD_1IN54_DrawObjStartScrin(){
 		EPD_1IN54_PrintFillRectagle(0xff,0,0,200,200);
 		EPD_1IN54_DrawObjScrin(getCurentScrin());
 	}
-		EPD_1IN54_TurnOnDisplay();
+		EPD_1IN54_TurnOnDisplay();*/
+		MyePaperInit(1);
 		Spi_While_ms(1000);
+		
+		EPD_1IN54_Clear(0);
+		Spi_While_ms(1000);
+		EPD_1IN54_Clear(0xff);
+		EPD_1IN54_DrawObjScrin(getCurentScrin());
+		EPD_1IN54_TurnOnDisplayPart(); 
+		//Spi_While_ms(1000);
 }
 

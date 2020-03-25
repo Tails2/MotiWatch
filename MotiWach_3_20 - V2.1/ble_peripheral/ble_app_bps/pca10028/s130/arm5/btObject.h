@@ -1,6 +1,11 @@
 #include "ble.h"
 
 
+#define ParamAdrMenuItem 0x00,0x01
+#define ParamAdrMenuCheck 0x00,0x02
+
+#define ParamAdrBackGoal 0x00,0x1f
+
 const uint8_t MemoTextArrayMotiv1Adres[]={
 	0,0
 
@@ -30,7 +35,7 @@ const uint8_t MemoTextArrayMotiv1Smoc[]={
 "\"I quit four years ago and it's the best thing I've ever done.\" - Reddit user.\0\n"
 };
 
-const uint8_t MemoTextArrayMotiv1Junc[]={
+const uint8_t MemoTextArrayMotiv1Junc[]={/*
 "Fast food is the #1 cause of obesity. Due to the high carbohydrate and fat content, it does nothing good for your body.\0"
 "Your taste buds may thank you for eating fast food, but your heart certainly won't.\0"
 "Food can affect your mental health just as it does your physical health. Junk food can potentially cause anxiety and depression. Google it!\0"
@@ -40,7 +45,18 @@ const uint8_t MemoTextArrayMotiv1Junc[]={
 "Most of the menu items at fast food restaurants, from fried chicken to an excess of white bread, don't carry the essential fiber, minerals, and healthy fats needed to fuel your body.\0"
 "Ditching junk food can protect your brain cells and improve brain function.\0"
 "With anything in life, if you opt for short-term happiness, you will receive long term sadness. Why do things that bad for your health?\0"
-"What will you get: weight loss, good nutrition intake, improved muscle tone, better mood, clear and glowing skin, reduced health risks etc.\0"
+"What will you get: weight loss, good nutrition intake, improved muscle tone, better mood, clear and glowing skin, reduced health risks etc.\0"*/
+	
+"Fast food is\rthe #1 cause of obesity. It does nothing good for you.\0"
+"Your taste buds may thank you for eating fast food, but your heart certainly won't.\0"
+"Junk food can potentially cause anxiety and depression. Google it!\0"
+"Obesity increases your risk for respiratory problems, including asthma and shortness of breath.\0"
+"Do you want to be lean and healthy?\0" 
+"Look what happened on 'Super Size Me'.\0" 
+"According to one study, about 90 percent of adults underestimate how much sodium is in their fast-food meals.\0"
+"Ditching junk food can protect your brain cells and improve brain function.\0"
+"With anything in life, if you opt for short-term happiness, you will receive long term sadness. Why do things that bad for your health?\0"
+"Carbs and sugar in fast food and processed food can increase acids in your mouth. These acids breaks down tooth enamel.\0"	
 
 "Believe it or not, it's possible to become addicted to fast food, just like you can with nicotine or drugs.\0"
 "Most of the menu items at these restaurants, from fried chicken to an excess of white bread, don't carry the essential fiber, minerals, and healthy fats needed to fuel your body.\0"
@@ -54,7 +70,7 @@ const uint8_t MemoTextArrayMotiv1Junc[]={
 "What will you get: weight loss, good nutrition intake, improved muscle tone, better mood, clear and glowing skin, reduced health risks etc.\0\n"
 };
 
-const uint8_t MemoTextArrayMotiv1Porn[]={
+const uint8_t MemoTextArrayMotiv1Porn[]={/*
 "Remember and think about your feelings after the last relapse. Were they good? Did you feel regret?\0"
 "Close your eyes and take 3 deep breaths. Think about the future of your life.\0"
 "\"Depending on what they are, our habits will either make us or break us. We become what we repeatedly do.\"\0"
@@ -64,7 +80,19 @@ const uint8_t MemoTextArrayMotiv1Porn[]={
 "Life without shame. Increased productivity. Being proud of yourself. Ditch loneliness. Reclaim self-confidence and regain focus. You can do it!\0"
 "Every day after you quit your overall energy increases and you become more confident. Visit NoFap on Reddit  and read some positive journals.\0"
 "If you are at home, go and brush your teeth. Even if you did it already. If you are somewhere else, drink a glass of water.\0"
-"Beware of 'Just one last time'! Don't let your mind tell you to fap one last time, it's not going to be amazing. You know it. Stay strong, brother!\0"
+"Beware of 'Just one last time'! Don't let your mind tell you to fap one last time, it's not going to be amazing. You know it. Stay strong, brother!\0"*/
+
+"Beware of \"Just one last time\"! It has already happened before, remember?\0"
+"Visit NoFap on Reddit and read some positive journals.\0"
+"If you quit porn you will reclaim self-confidence and regain focus. You can do it!\0"
+"\"Winning is a habit. Unfortunately, so is losing.\" ? Vince Lombardi\0"
+"There are countless victims of human sex trafficking who are forced to have sex on camera.\0" 
+"\"I regret letting porn overtake my life and my time. It ruined everything!\" - Internet user.\0"
+"\"Depending on what they are, our habits will either make us or break us. We become what we repeatedly do.\"\0"
+"Every day after you quit your overall energy increases and you become more confident.\0" 
+"Close your eyes and take 3 deep breaths. Think about the future of your life.\0"
+"Remember and think about your feelings after the last relapse. Did you feel regret?\0" 	
+	
 	
 "\"Depending on what they are, our habits will either make us or break us. We become what we repeatedly do.\"\0"
 "Close your eyes and take 3 deep breaths. Think about the future of your life.\0"
@@ -179,7 +207,7 @@ const uint8_t MemoTextArrayGoalsPanicEnd[]={
 */
 const uint8_t MemoTextArrayGoalsPanic[]={
 	
-"Stay calm and remind yourself that cigarettes don't control you. Ready beat this craving?\0"
+"Stay calm and remind yourself that cigarettes don't control you. Ready to be- at this craving?\0"
 "So, you want to drink. Let's take 10 steps and then you make a final decision. Ready?\0"
 "First message \r(If press Motivation button): for Drugs......?\0"
 "Many people don't eat junk food. Ready to become one of them?\0"
@@ -326,7 +354,7 @@ const uint8_t PartMenuNoYes[] = {
 'N','O','#',	
 //-------------------------------------		
 0x00,'#','#',0x01,0x00,0,	//new object text,length
-176,120,0x05,0x00,21,21,0x00,0x01,		//key text-> x,y,xin,xout,yin,yout,color,fount
+176,120,0x05,0x00,22,22,0x00,0x01,		//key text-> x,y,xin,xout,yin,yout,color,fount
 'Y','E','S','#',
 //-------------------------------------	
 };
@@ -3756,6 +3784,9 @@ const uint8_t ObjScrinGoalsSmoking[] = {
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
 0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
+			
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x00,	//command (Arifmetic operation),operation,value 		
 	
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length  //deys
@@ -3803,6 +3834,9 @@ const uint8_t ObjScrinGoalsAlcohol[] = {
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
 0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
+	
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x01,	//command (Arifmetic operation),operation,value 		
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length
 48,120,0x04,0x06,0x03,0x03,0xff,0x03,0x04,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -3846,7 +3880,10 @@ const uint8_t ObjScrinGoalsDugs[] = {
 0x04,0x03,0x00,0x01,0x00,0x06,	//command (Command operation),operation,value 		
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
-0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
+0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 
+
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x02,	//command (Arifmetic operation),operation,value 			
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length
 48,120,0x04,0x06,0x03,0x03,0xff,0x03,0x04,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -3890,7 +3927,10 @@ const uint8_t ObjScrinGoalJunkFood[] = {
 0x04,0x03,0x00,0x01,0x00,0x06,	//command (Command operation),operation,value 		
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
-0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 		
+0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
+
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x03,	//command (Arifmetic operation),operation,value 			
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length
 48,120,0x04,0x06,0x03,0x03,0xff,0x03,0x04,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -3935,7 +3975,10 @@ const uint8_t ObjScrinGoalsPorn[] = {
 0x04,0x03,0x00,0x01,0x00,0x06,	//command (Command operation),operation,value 		
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
-0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
+0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 
+	
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x04,	//command (Arifmetic operation),operation,value 			
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length
 48,120,0x04,0x06,0x03,0x03,0xff,0x03,0x04,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -3981,6 +4024,9 @@ const uint8_t ObjScrinGoalsSugar[] = {
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
 0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
+	
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x05,	//command (Arifmetic operation),operation,value 			
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length
 48,120,0x04,0x06,0x03,0x03,0xff,0x03,0x04,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -4025,6 +4071,9 @@ const uint8_t ObjScrinGoalsSocialMedia[] = {
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
 0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
+	
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x06,	//command (Arifmetic operation),operation,value 			
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length
 48,120,0x04,0x06,0x03,0x03,0xff,0x03,0x04,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -4067,7 +4116,10 @@ const uint8_t ObjScrinGoalsImpulsiveBuying[] = {
 0x04,0x03,0x00,0x01,0x00,0x06,	//command (Command operation),operation,value 		
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
-0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
+0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 
+
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x07,	//command (Arifmetic operation),operation,value 			
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length
 48,120,0x04,0x06,0x03,0x03,0xff,0x03,0x04,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -4112,7 +4164,10 @@ const uint8_t ObjScrinGoalsRedMeat[] = {
 0x04,0x03,0x00,0x01,0x00,0x06,	//command (Command operation),operation,value 		
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
-0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 		
+0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 
+
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x08,	//command (Arifmetic operation),operation,value 			
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length
 48,120,0x04,0x06,0x03,0x03,0xff,0x03,0x04,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -4157,6 +4212,9 @@ const uint8_t ObjScrinGoalsSingleUsePlastic[] = {
 	
 0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
 0x03,0x05,0x00,0x00,0x06,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
+	
+0x00,'#','#',0x0B,0x00,9,	//new object DataOperation,length
+0x03,0x01,0x00,ParamAdrBackGoal,0x00,0x00,0x00,0x09,	//command (Arifmetic operation),operation,value 			
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,11,	//new object text,length
 48,120,0x04,0x06,0x03,0x03,0xff,0x03,0x04,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -4314,9 +4372,13 @@ const uint8_t ObjScrinRecordsGoals[] = {
 176,0,0x05,0x00,0x10,0x12,0x00,0x01,		//key text-> x,y,xin,xout,yin,yout,color,fount
 'B','A','C','K','#',	
 //-------------------------------------
-0x00,'#','#',0x07,0x00,20,	//new object Memo,length
-32,0x00,0x04,0x04,0x00,0x00,0,200,0x00,0x02, //text-> x,y,xin,xout,border_xin,border_xout,xspase(0 or 1),dy,color,fount
-57,'R','E','C','O','R','D','S','#',0x0A,	
+0x00,'#','#',0x01,0x00,24,	//new object text,length
+0x00,0x00,0x08,0x06,15,17,0x00,0x02, //text-> x,y,xin,xout,yin,yout,color,fount
+'M','Y',' ','L','A','S','T',' ','R','E','S','U','L','T','S','#',	
+		
+//0x00,'#','#',0x07,0x00,20,	//new object Memo,length
+//32,0x00,0x04,0x04,0x00,0x00,0,200,0x00,0x02, //text-> x,y,xin,xout,border_xin,border_xout,xspase(0 or 1),dy,color,fount
+//57,'R','E','C','O','R','D','S','#',0x0A,	
 //-------------------------------------		
 
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4327,7 +4389,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 	
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,17,	//new object text,length
-144,0x00,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
+136,0x00,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
 ' ','D','a','y','s','#',
 //-------------------------------------		
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4338,7 +4400,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 
 //-------------------------------------		
 0x00,'#','#',0x10,0x00,18,	//new object text,length
-144,80,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount
+136,72,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount
 ' ','H','o','u','r','s','#',	
 //-------------------------------------		
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4349,7 +4411,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 	
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,17,	//new object text,length
-128,0x00,0x00,0x00,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
+120,0x00,0x00,0x00,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
 ' ','D','a','y','s','#',
 //-------------------------------------		
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4360,7 +4422,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 
 //-------------------------------------		
 0x00,'#','#',0x10,0x00,18,	//new object text,length
-128,80,0x00,0x00,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount
+120,72,0x00,0x00,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount
 ' ','H','o','u','r','s','#',		
 //-------------------------------------		
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4371,7 +4433,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 	
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,17,	//new object text,length
-104,0x00,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
+96,0x00,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
 ' ','D','a','y','s','#',
 //-------------------------------------		
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4382,7 +4444,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 
 //-------------------------------------		
 0x00,'#','#',0x10,0x00,18,	//new object text,length
-104,80,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount
+96,72,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount
 ' ','H','o','u','r','s','#',		
 //-------------------------------------		
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4393,7 +4455,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 	
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,17,	//new object text,length
-88,0x00,0x00,0x00,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
+80,0x00,0x00,0x00,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
 ' ','D','a','y','s','#',
 //-------------------------------------		
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4404,7 +4466,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 
 //-------------------------------------		
 0x00,'#','#',0x10,0x00,18,	//new object text,length
-88,80,0x00,0x00,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount
+80,72,0x00,0x00,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount
 ' ','H','o','u','r','s','#',		
 //-------------------------------------		
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4415,7 +4477,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 	
 //-------------------------------------			
 0x00,'#','#',0x10,0x00,17,	//new object text,length
-64,0x00,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
+56,0x00,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x06, //text-> x,y,xin,xout,yin,yout,color,fount
 ' ','D','a','y','s','#',
 //-------------------------------------		
 0x00,'#','#',0x0B,0x00,7,	//new object DataOperation,length
@@ -4425,12 +4487,9 @@ const uint8_t ObjScrinRecordsGoals[] = {
 0x03,0x06,0x00,0x00,0x07,0x00,0x00,0x00,24,	//command (Arifmetic operation),operation,value 	
 
 //-------------------------------------		
-0x00,'#','#',0x10,0x00,25,	//new object text,length
-64,80,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount	
+0x00,'#','#',0x10,0x00,0,	//new object text,length
+56,72,0x04,0x04,0x06,0x10,0xff,0x01,0x06,0x00,0x07, //text-> x,y,xin,xout,yin,yout,color,fount	
 ' ','H','o','u','r','s',' ','(','L','a','s','t',')','#',	
-	
-	
-	
 
 //0x00,'#','#',0x01,0x00,26,	//new object text,length
 //64,0x00,0x04,0x04,0x06,0x10,0xff,0x01, //text-> x,y,xin,xout,yin,yout,color,fount
@@ -4452,7 +4511,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 //144,0x00,0x04,0x04,0x06,0x10,0xff,0x01, //text-> x,y,xin,xout,yin,yout,color,fount
 //'0','0','0',' ','D','a','y','s',' ','0','0',' ','H','o','u','r','s','#',
 //-------------------------------------	
-0x00,'#','#',0x08,0x00,0,	//new object item_text,length 59
+/*0x00,'#','#',0x08,0x00,0,	//new object item_text,length 59
 0,0x00,0x04,0x04,200,0x00,0x01,0x00,0x02, //text-> x,y,xin,xout,dy,params(0x0001),color,fount
 23,'M','Y',' ','S','M','O','K','E','-','F','R','E','E','#',
 12,'M','Y',' ','A','L','C','O','H','O','L','-','F','R','E','E','#',
@@ -4464,7 +4523,7 @@ const uint8_t ObjScrinRecordsGoals[] = {
 18,'M','Y',' ','B','U','Y','I','N','G','-','F','R','E','E','#',
 7,'M','Y',' ','R','E','D',' ','M','E','A','T','-','F','R','E','E','#',
 10,'M','Y',' ','P','L','A','S','P','I','K','-','F','R','E','E','#',
-0x0A,	
+0x0A,	*/
 //-------------------------------------
 };
 const uint8_t ObjScrinDeleteGoals[] = {
@@ -4554,7 +4613,7 @@ const uint8_t ObjScrinGoalsPanic[] = {
 'B','A','C','K','#',		
 //-------------------------------------
 0x00,'#','#',0x01,0x00,12,	//new object text,length
-176,120,0x05,0x00,21,21,0x00,0x01,		//key text-> x,y,xin,xout,yin,yout,color,fount
+176,120,0x05,0x00,22,22,0x00,0x01,		//key text-> x,y,xin,xout,yin,yout,color,fount
 'Y','E','S','#',	
 //-------------------------------------		
 //0x00,'#','#',12,0x00,0,	//new object List,length
@@ -4696,9 +4755,12 @@ const uint8_t ObjRunFinishResetGoals[] = {
 //-------------------------------------	
 };
 const uint8_t ObjRunGoutooGoals[] = {
+//0x00,'#','#',0x0B,0x00,6,	//new object DataOperation,length
+//0x05,0x05,ParamAdrBackGoal,0x00,0x00,0x00,0x09,	//command (if operation),operation,value 		
+	
 //-------------------------------------		
 0x00,'#','#',0x0A,0x00,0,	//new object Key,length
-0x04,0x03,0x00,0x0E,0x00,0x02,0x83,0x01,0x0A,0x00,0x01,	//key3  command gouTo, scrin =0x0009 +		
+0x04,0x03,0x00,0x0E,ParamAdrMenuCheck,0x83,0x01,0x8A,ParamAdrMenuItem,	//key3  command gouTo, scrin =0x0009 +		
 //-------------------------------------	
 };
 //------------------------------------------------
@@ -4805,4 +4867,40 @@ const uint8_t ObjRunReset[] = {
 0x00,'#','#',0x09,0x00,0,	//new object Key,length
 0x04,0x03,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,	//keyNumber(softKey),command,chengeDown menu slide (adr = 0x0006), param (adres = 0x0000) 	
 };
+const uint8_t ObjScrinPresetTimer[] = {
+//-------------------------------------	
+0x00,'#','#',0x0A,0x00,11,	//new object Key,length
+0x01,0x04,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,	//keyNumber,command,chengeDown menu slide (adr = 0x0006), param (adres = 0x0000) 	
+//-------------------------------------				
+0x00,'#','#',0x01,0x00,13,	//new object text,length
+176,0,0x05,0x00,0x10,0x12,0x00,0x01,		//key text-> x,y,xin,xout,yin,yout,color,fount
+'B','A','C','K','#',	
+//-------------------------------------	
+0x00,'#','#',0x01,0x00,15,	//new object text,length
+176,116,0x05,0x00,7,7,0x00,0x01,		//key text-> x,y,xin,xout,yin,yout,color,fount
+'P','R','E','S','E','T','#',	
+//-------------------------------------	
+0x00,'#','#',0x0A,0x00,11,	//new object Key,length
+0x03,0x03,0x00,254,0x00,0x00,0x80,0x00,0x00,0x00,0x00,	//keyNumber,command,chengeDown menu slide (adr = 0x0006), param (adres = 0x0000) 	
+//-------------------------------------
+0x00,'#','#',0x01,0x00,0,	//new object text,length
+72,0,0x00,0x00,0x17,0x17,0xff,0x02,		//key text-> x,y,xin,xout,yin,yout,color,fount
+'P','R','E','S','E','T',' ','T','I','M','E','R','S','#',	
+//-------------------------------------		
+//0x00,'#','#',0x01,0x00,27,	//new object text,length
+//136,0,0x03,0x00,0x23,0x12,0xff,0x01,		//key text-> x,y,xin,xout,yin,yout,color,fount
+//'o','n',' ','d','e','f','a','u','l','t',' ','s','e','t','t','i','n','g','#',	
+//-------------------------------------		
+//0x00,'#','#',0x03,0x00,0,	//new object picture,length	(0-end object) //133
+//48,53,0xff,0x14, //  x,y,color,adr	
+
+};
+const uint8_t ObjRunRpesetTimer[] = {
+0x00,'#','#',0x0B,0x00,2,	//new object DataOperation,length
+0x04,78,	//command (Command operation),Reset	
+//-------------------------------------		
+0x00,'#','#',0x09,0x00,0,	//new object Key,length
+0x04,0x00,0x00,0x01,0x00,0x00,0x8c,0x00,0x00,0x00,0x00,	//keyNumber(softKey),command,chengeDown menu slide (adr = 0x0006), param (adres = 0x0000) 	
+};
+
 //-------------

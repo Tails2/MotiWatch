@@ -16,8 +16,8 @@
 .\_build\pstorage.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\_build\pstorage.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\4.0.0-2.alpha\util\nordic_common.h
 .\_build\pstorage.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S130\2.0.0-7.alpha\headers\nrf_error.h
-.\_build\pstorage.o: D:\Projekt\!GitHub\MotiWatch\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Libraries\nRF51422_xxAC\nrf_assert.h
-.\_build\pstorage.o: D:\Projekt\!GitHub\MotiWatch\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Libraries\nRF51422_xxAC\app_error.h
+.\_build\pstorage.o: D:\Projekt\!GitHub\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Libraries\nRF51422_xxAC\nrf_assert.h
+.\_build\pstorage.o: D:\Projekt\!GitHub\MotiWatch\MotiWach_3_20 - V2.1\ble_peripheral\ble_app_bps\pca10028\s130\arm5\RTE\nRF_Libraries\nRF51422_xxAC\app_error.h
 .\_build\pstorage.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\_build\pstorage.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\_build\pstorage.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\4.0.0-2.alpha\util\sdk_errors.h

@@ -162,6 +162,7 @@ void powerInit(){
 		PinPwrOn;
 		Soft_Spi_GPIO_Init(); 
 		MyePaperDualInit();
+		//MyePaperInit(1);
 		W25Q_Flash_init();	
 }
 

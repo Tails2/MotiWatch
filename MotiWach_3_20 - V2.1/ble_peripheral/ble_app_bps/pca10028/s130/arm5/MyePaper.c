@@ -563,7 +563,7 @@ uint8_t EPD_1IN54_myDrawString(My_StringObg_TypeDef setting) {//1
   uint16_t n=0;
 
 	uint16_t dx;//=(font[0]<<3)+xin+xout;
-	uint16_t dy= EPD_WIDTH - setting.y-1;
+	uint16_t dy= EPD_WIDTH - setting.y;
 	uint8_t btMax;
 	
 	if((setting.xin+setting.xout)>0){btMax=font[0]+((setting.xin+setting.xout-1)>>3)+1;} else {btMax=font[0];}
